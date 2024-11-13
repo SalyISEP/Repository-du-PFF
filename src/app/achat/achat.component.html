@@ -1,0 +1,10 @@
+<!-- src/app/achat/achat.component.html -->
+<form [formGroup]="achatForm" (ngSubmit)="onSubmit()">
+  <label for="montant">Montant des crédits :</label>
+  <input type="number" id="montant" formControlName="montant" />
+  <div *ngIf="achatForm.get('montant')?.invalid && achatForm.get('montant')?.touched">
+    Le montant doit être supérieur à zéro.
+  </div>
+  <button type="submit" [disabled]="achatForm.invalid">Acheter</button>
+</form>
+
